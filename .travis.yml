@@ -1,0 +1,8 @@
+language: python
+python:
+- '3.6'
+- '3.5' 
+install:
+- python -m pip install pytest
+script:
+- python -m pytest test_*.py
