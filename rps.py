@@ -1,7 +1,7 @@
 import random
 
 def is_valid_play(play):
-    return play in ["rock", "paper", "scissors"]
+    return play in ["rock", "paper", "nůžky"]
 
 def random_play():
     return random.choice(['rock', 'paper', 'scissors'])
