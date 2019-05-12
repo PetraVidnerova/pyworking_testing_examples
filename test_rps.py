@@ -66,12 +66,12 @@ def input_fake(fake):
 #def test_whole_game(capsys, monkeypatch):
     # monkeypatch.setattr('builtins.input', input_fake_rock)
 
-@pytest.mark.parametrize('play', ['rock', 'paper', 'scissors'])    
-def test_whole_game(capsys, play):
-    rps.main(input=input_fake(play))
-    captured = capsys.readouterr()
-    assert 'rock, paper, or scissors?' in captured.out 
-    assert ('computer wins' in captured.out) or ('human wins' in captured.out) or ('It\'s a tie!' in captured.out)
+#@pytest.mark.parametrize('play', ['rock', 'paper', 'scissors'])    
+#def test_whole_game(capsys, play):
+#    rps.main(input=input_fake(play))
+#    captured = capsys.readouterr()
+#    assert 'rock, paper, or scissors?' in captured.out 
+#    assert ('computer wins' in captured.out) or ('human wins' in captured.out) or ('It\'s a tie!' in captured.out)
 
     
 def test_game_asks_again_if_wrong_input():
@@ -87,13 +87,13 @@ def fake_random_play(play):
         return play
     return fake_random_play_ 
 
-@pytest.mark.parametrize('play', ['rock', 'paper', 'scissors'])
-def test_whole_game_tie(capsys, monkeypatch, play):
-    monkeypatch.setattr('rps.random_play', fake_random_play(play))
-    
-    rps.main(input=input_fake(play))
-    captured = capsys.readouterr()
-    assert 'It\'s a tie!' in captured.out 
+#@pytest.mark.parametrize('play', ['rock', 'paper', 'scissors'])
+#def test_whole_game_tie(capsys, monkeypatch, play):
+#    monkeypatch.setattr('rps.random_play', fake_random_play(play))
+#    
+#    rps.main(input=input_fake(play))
+#    captured = capsys.readouterr()
+#    assert 'It\'s a tie!' in captured.out 
 
 games = [('paper', 'scissors', 'computer'),
          ('paper', 'rock', 'human'),
@@ -102,12 +102,12 @@ games = [('paper', 'scissors', 'computer'),
          ('scissors', 'paper', 'human'),
          ('scissors', 'rock', 'computer')]
 
-@pytest.mark.parametrize('game', games)
-def test_whole_game_wins(capsys, monkeypatch, game):
-    monkeypatch.setattr('rps.random_play', fake_random_play(game[1]))
-
-    rps.main(input=input_fake(game[0]))
-    captured = capsys.readouterr()
-    assert game[2] in captured.out
+#@pytest.mark.parametrize('game', games)
+#def test_whole_game_wins(capsys, monkeypatch, game):
+#    monkeypatch.setattr('rps.random_play', fake_random_play(game[1]))
+#
+#    rps.main(input=input_fake(game[0]))
+#    captured = capsys.readouterr()
+#    assert game[2] in captured.out
 
     
